@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">FleeJoker</string>
+    <string name="select_card">Selecione uma carta</string>
+    <string name="confirm">CONFIRMAR</string>
+    <string name="content_card_left">Carta da esquerda</string>
+    <string name="content_card_middle">Carta do meio</string>
+    <string name="content_card_right">Carta da direita</string>
+</resources>

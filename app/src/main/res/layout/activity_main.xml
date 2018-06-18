@@ -19,8 +19,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/veryLarge_vertical_margin"
+            android:textStyle="bold"
             android:textSize="@dimen/textSize_name"
-            android:textColor="black"
             android:text="@string/select_card" />
     </LinearLayout>
 
@@ -35,23 +35,23 @@
             android:id="@+id/card_left"
             android:layout_width="@dimen/veryLarge_horizontal_margin"
             android:layout_height="@dimen/card_height"
-            android:layout_marginEnd="@dimen/veryLarge_horizontal_margin"
-            android:src="@drawable/BackOfTheCard"
+            android:layout_marginEnd="@dimen/medium_horizontal_margin"
+            android:src="@drawable/backofthecard"
             android:contentDescription="@string/content_card_left"/>
 
         <ImageView
             android:id="@+id/card_middle"
             android:layout_width="@dimen/veryLarge_horizontal_margin"
             android:layout_height="@dimen/card_height"
-            android:src="@drawable/BackOfTheCard"
+            android:src="@drawable/backofthecard"
             android:contentDescription="@string/content_card_middle"/>
 
         <ImageView
             android:id="@+id/card_right"
             android:layout_width="@dimen/veryLarge_horizontal_margin"
             android:layout_height="@dimen/card_height"
-            android:layout_marginStart="@dimen/veryLarge_horizontal_margin"
-            android:src="@drawable/BackOfTheCard"
+            android:layout_marginStart="@dimen/medium_horizontal_margin"
+            android:src="@drawable/backofthecard"
             android:contentDescription="@string/content_card_right"/>
     </LinearLayout>
 
@@ -59,8 +59,26 @@
         android:id="@+id/confirmButton"
         android:layout_width="@dimen/button_confirm"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/veryLarge_vertical_margin"
+        android:layout_marginTop="@dimen/large_horizontal_margin"
         android:layout_gravity="center"
-        android:text="@string/confirm"/>
+        android:text="@string/confirm"
+        android:contentDescription="@string/confirm"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/large_horizontal_margin"
+        android:text="@string/result"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/tryAgainButton"
+        android:layout_width="@dimen/button_confirm"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/large_horizontal_margin"
+        android:layout_gravity="center"
+        android:text="@string/tryAgain"
+        android:contentDescription="@string/tryAgain"/>
 
 </LinearLayout>

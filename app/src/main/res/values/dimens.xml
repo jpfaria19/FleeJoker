@@ -15,5 +15,5 @@
     <dimen name="card_height">90dp</dimen>
     <dimen name="button_confirm">150dp</dimen>
     <dimen name="textSize_name">25sp</dimen>
-    <dimen name="linearDeck">80dp</dimen>
+    <dimen name="linearDeck">60dp</dimen>
 </resources>

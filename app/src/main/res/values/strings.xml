@@ -5,4 +5,6 @@
     <string name="content_card_left">Carta da esquerda</string>
     <string name="content_card_middle">Carta do meio</string>
     <string name="content_card_right">Carta da direita</string>
+    <string name="result">RESULTADO</string>
+    <string name="tryAgain">TENTAR NOVAMENTE</string>
 </resources>

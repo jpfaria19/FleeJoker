@@ -1,57 +1,60 @@
 package infnet.gads.fleejoker;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ImageView;
+import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ImageView card_left, card_middle, card_right;
-
     private final static Random random = new Random();
+    private AlertDialog alert;
+    //public final class LocalTime;
 
-    private final static int[] cardDeck = new int[]{R.drawable.AceOfSpades, R.drawable.Joker};
-
-//    List<Integer> cards;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        card_left = findViewById(R.id.card_left);
-        card_middle = findViewById(R.id.card_middle);
-        card_right = findViewById(R.id.card_right);
-
-//        cards = new ArrayList<>();
-//        cards.add(107); //Spades
-//        cards.add(407); //Joker
-
-        card_left.setImageResource(cardDeck[random.nextInt(cardDeck.length)]);
-
-
-        card_left.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-        card_middle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-        card_right.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
+        dialogInitial();
     }
+
+    //Initial dialogue to start game
+    public void dialogInitial(){
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        dialogBuilder.setTitle("Bem vindo ao FleeJoker");
+        dialogBuilder.setMessage
+                (
+                        "Selecione uma carta e clique em confirmar; \n \n " +
+                        "Quando você clicar em 'COMEÇAR' um tempo vai começar a contar, então quantos menos tempo você acertar, melhor. \n " +
+                        "Bom jogo!"
+                );
+
+        dialogBuilder.setPositiveButton("Começar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(MainActivity.this, "COMEÇOUUUUU", Toast.LENGTH_LONG).show();
+                //START TIME
+
+            }
+        });
+        dialogBuilder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+                System.exit(0);
+            }
+        });
+
+        alert = dialogBuilder.create();
+        alert.show();
+    }
+
 }

@@ -59,17 +59,19 @@
         android:id="@+id/confirmButton"
         android:layout_width="@dimen/button_confirm"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/large_horizontal_margin"
         android:layout_gravity="center"
-        android:text="@string/confirm"
-        android:contentDescription="@string/confirm"/>
+        android:layout_marginTop="@dimen/large_horizontal_margin"
+        android:contentDescription="@string/confirm"
+        android:onClick="confirmButton"
+        android:text="@string/confirm" />
 
-    <TextView
+    <Chronometer
+        android:id="@+id/result"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:textSize="30sp"
         android:layout_marginTop="@dimen/large_horizontal_margin"
-        android:text="@string/result"
         android:visibility="invisible" />
 
     <Button

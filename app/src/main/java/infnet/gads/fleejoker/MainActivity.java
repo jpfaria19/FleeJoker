@@ -2,9 +2,14 @@ package infnet.gads.fleejoker;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.nfc.Tag;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.widget.Chronometer;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.time.LocalDateTime;
@@ -15,18 +20,21 @@ public class MainActivity extends AppCompatActivity {
 
     private final static Random random = new Random();
     private AlertDialog alert;
-    //public final class LocalTime;
+    public long aux;
+    public Chronometer chronometer;
+    public boolean running;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         dialogInitial();
+
     }
 
-    //Initial dialogue to start game
+    //Initial dialog to start game
     public void dialogInitial(){
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         dialogBuilder.setTitle("Bem vindo ao FleeJoker");
@@ -40,9 +48,15 @@ public class MainActivity extends AppCompatActivity {
         dialogBuilder.setPositiveButton("Começar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                Log.v("DEBUG", "verb antes do chronometro...");
+                chronometer = findViewById(R.id.result);
+                chronometer.setBase(SystemClock.elapsedRealtime());
+                chronometer.start();
+                //startChronometer();
                 Toast.makeText(MainActivity.this, "COMEÇOUUUUU", Toast.LENGTH_LONG).show();
                 //START TIME
-
+                //chronometer.start();
+                //findViewById(R.id.result).setVisibility(View.INVISIBLE);
             }
         });
         dialogBuilder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
@@ -57,4 +71,28 @@ public class MainActivity extends AppCompatActivity {
         alert.show();
     }
 
+    public void confirmButton(View v){
+        //chronometer.stop();
+        //stopChronometer(v);
+        chronometer.stop();
+        aux = chronometer.getBase();
+        findViewById(R.id.result).setVisibility(View.VISIBLE);
+        chronometer.setBase(aux);
+        //.setVisibility(v.VISIBLE);
+    }
+
+    public void startChronometer(){
+        //if(!running){
+            //chronometer.setBase(SystemClock.elapsedRealtime());
+            //chronometer.start();
+            //running = true;
+        //}
+    }
+    public void stopChronometer(View v){
+        //if(running){
+        //    chronometer.stop();
+        //    running = false;
+        //}
+    }
 }
+

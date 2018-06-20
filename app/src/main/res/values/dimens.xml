@@ -16,4 +16,5 @@
     <dimen name="button_confirm">150dp</dimen>
     <dimen name="textSize_name">25sp</dimen>
     <dimen name="linearDeck">60dp</dimen>
+    <dimen name="chronometerSize">30sp</dimen>
 </resources>

@@ -22,8 +22,6 @@ public class MainActivity extends AppCompatActivity {
     private AlertDialog alert;
     public long aux;
     public Chronometer chronometer;
-    public boolean running;
-
 
 
     @Override
@@ -35,14 +33,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //Initial dialog to start game
-    public void dialogInitial(){
+    public void dialogInitial() {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         dialogBuilder.setTitle("Bem vindo ao FleeJoker");
         dialogBuilder.setMessage
                 (
                         "Selecione uma carta e clique em confirmar; \n \n " +
-                        "Quando você clicar em 'COMEÇAR' um tempo vai começar a contar, então quantos menos tempo você acertar, melhor. \n " +
-                        "Bom jogo!"
+                                "Quando você clicar em 'COMEÇAR' um tempo vai começar a contar, " +
+                                "então quantos menos tempo você acertar, melhor. \n " +
+                                "Bom jogo!"
                 );
 
         dialogBuilder.setPositiveButton("Começar", new DialogInterface.OnClickListener() {
@@ -52,11 +51,7 @@ public class MainActivity extends AppCompatActivity {
                 chronometer = findViewById(R.id.result);
                 chronometer.setBase(SystemClock.elapsedRealtime());
                 chronometer.start();
-                //startChronometer();
                 Toast.makeText(MainActivity.this, "COMEÇOUUUUU", Toast.LENGTH_LONG).show();
-                //START TIME
-                //chronometer.start();
-                //findViewById(R.id.result).setVisibility(View.INVISIBLE);
             }
         });
         dialogBuilder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
@@ -71,28 +66,17 @@ public class MainActivity extends AppCompatActivity {
         alert.show();
     }
 
-    public void confirmButton(View v){
-        //chronometer.stop();
-        //stopChronometer(v);
+    public void confirmButton(View v) {
         chronometer.stop();
         aux = chronometer.getBase();
         findViewById(R.id.result).setVisibility(View.VISIBLE);
         chronometer.setBase(aux);
-        //.setVisibility(v.VISIBLE);
     }
 
-    public void startChronometer(){
-        //if(!running){
-            //chronometer.setBase(SystemClock.elapsedRealtime());
-            //chronometer.start();
-            //running = true;
-        //}
-    }
-    public void stopChronometer(View v){
-        //if(running){
-        //    chronometer.stop();
-        //    running = false;
-        //}
+    public void tryAgainButton(View v){
+        chronometer.setBase(SystemClock.elapsedRealtime());
+        aux = 0;
+        chronometer.start();
     }
 }
 
